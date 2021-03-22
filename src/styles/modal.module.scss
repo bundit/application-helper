@@ -105,3 +105,8 @@
     margin-left: 10px;
   }
 }
+
+.sectionModal {
+  @extend .modal;
+  height: 300px;
+}

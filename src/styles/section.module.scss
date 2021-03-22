@@ -35,3 +35,21 @@
     grid-row-gap: 30px;
   }
 }
+
+.section {
+  .newSectionTitle {
+    @extend .sectionTitle;
+
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .newSectionButton {
+      background: transparent;
+      border: none;
+    }
+  }
+}
