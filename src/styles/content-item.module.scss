@@ -1,0 +1,97 @@
+@import "variables";
+
+$contentHeight: 150px;
+$contentWidth: 200px;
+
+.contentItemWrapper {
+  height: $contentHeight;
+  width: $contentWidth;
+  border-radius: $borderRadius;
+  background: $bg2;
+  display: flex;
+  flex-direction: column;
+
+  header {
+    border-top-left-radius: $borderRadius;
+    border-top-right-radius: $borderRadius;
+    border-radius: $borderRadius;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-left: 10px;
+    background: $accentGrey;
+    position: relative;
+    top: -10px;
+    left: -10px;
+  }
+
+  p {
+    margin: 0;
+    padding: 5px;
+  }
+
+  footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+    position: relative;
+    bottom: -10px;
+    right: 5px;
+
+    button {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: $borderRadius;
+      margin-left: 10px;
+      color: white;
+
+      &:hover {
+        box-shadow: $boxShadow;
+        transform: scale(1.05);
+      }
+
+      &:active {
+        transform: scale(1);
+      }
+    }
+
+    button:first-child {
+      background: $accentSalmon;
+    }
+    button:nth-child(2) {
+      background: $accentYellow;
+    }
+    button:last-child {
+      background: $accentGreen;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: $boxShadow;
+  }
+}
+
+.newContentButton {
+  height: $contentHeight;
+  width: $contentWidth;
+  border-radius: $borderRadius;
+  background: $bg2;
+  border: none;
+  cursor: pointer;
+
+  svg {
+    color: black;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: $boxShadow;
+
+    > svg {
+      transition: 0s linear;
+      color: $primary;
+    }
+  }
+}
