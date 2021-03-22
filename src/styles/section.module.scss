@@ -1,0 +1,37 @@
+@import "variables";
+
+.section {
+  position: relative;
+  border-radius: $borderRadius;
+  border-top: 1px #eee solid;
+  margin-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+
+  .sectionTitle {
+    position: relative;
+    top: -40px;
+    left: -40px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $borderRadius;
+    background: $headerAccent;
+    align-self: flex-start;
+    text-align: left;
+
+    h2 {
+      margin: 0;
+      display: inline;
+      color: white;
+    }
+  }
+
+  .sectionContentWrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 30px;
+  }
+}
