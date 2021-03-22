@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 import { UserContentItem } from "../@types";
 import { loadItems, saveItems } from "../utils/helpers";
@@ -10,9 +12,11 @@ import styles from "../styles/section.module.scss";
 
 type SectionProps = {
   title: string;
+  deleteSection: (title: string, index: number) => void;
+  index: number;
 };
 
-function Section({ title }: SectionProps) {
+function Section({ title, deleteSection, index }: SectionProps) {
   const [items, setItems] = useState<UserContentItem[]>(loadItems(title));
   const [isNewItemModalOpen, setIsNewItemModalOpen] = useState(false);
   const [isEditItemModalOpen, setIsEditItemModalOpen] = useState(false);
@@ -53,10 +57,27 @@ function Section({ title }: SectionProps) {
     setItems(items.filter((item) => item !== itemToDelete));
   }
 
+  function handleDeleteSection() {
+    const confirmDeleteSection = window.confirm(
+      "Are you sure you want to delete this section?"
+    );
+
+    if (confirmDeleteSection) {
+      deleteSection(title, index);
+    }
+  }
+
   return (
     <section className={styles.section}>
       <span className={styles.sectionTitle}>
         <h2>{title}</h2>
+        <button
+          type="button"
+          onClick={handleDeleteSection}
+          className={styles.deleteSectionButton}
+        >
+          <FontAwesomeIcon icon={faTimes} />
+        </button>
       </span>
       <div className={styles.sectionContentWrapper}>
         {items.map((item, i) => (

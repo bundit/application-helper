@@ -26,6 +26,7 @@ h3 {
 
 button {
   cursor: pointer;
+  outline: none;
 }
 
 .app {

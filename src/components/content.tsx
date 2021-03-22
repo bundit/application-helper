@@ -30,10 +30,21 @@ function Content() {
     setSections([...sections, newTitle]);
   }
 
+  function deleteSection(title: string, index: number) {
+    setSections(
+      sections.filter((section, i) => section !== title && index !== i)
+    );
+  }
+
   return (
     <div className={styles.contentWrapper}>
       {sections.map((section, i) => (
-        <Section key={`${section}:${i}`} title={section} />
+        <Section
+          key={`${section}:${i}`}
+          title={section}
+          deleteSection={deleteSection}
+          index={i}
+        />
       ))}
       <NewSectionButton onClick={toggleNewSectionModal} />
 
